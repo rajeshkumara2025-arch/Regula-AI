@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b31">
+  <title>Human behaviour · RegulaAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="assets/js/app.js"></script>
+  <script defer src="assets/js/simulations.js"></script>
+</head>
+<body data-page="human-behavior">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="index.html" aria-label="RegulaAI home">
+        <span class="brand-mark">R<span>.</span></span>
+        <span class="brand-copy"><strong>RegulaAI</strong><small>BUILDING INTELLIGENCE</small></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation"><a class="nav-link " href="index.html"><span class="nav-dot"></span><span>Overview</span></a>
+<a class="nav-link " href="buildings.html"><span class="nav-dot"></span><span>Buildings</span></a>
+<a class="nav-link " href="floor-plan.html"><span class="nav-dot"></span><span>Floor plan</span></a>
+<a class="nav-link " href="compliance.html"><span class="nav-dot"></span><span>Compliance</span></a>
+<a class="nav-link " href="risk-assessment.html"><span class="nav-dot"></span><span>Risk assessment</span></a>
+<a class="nav-link " href="evacuation.html"><span class="nav-dot"></span><span>Evacuation</span></a>
+<a class="nav-link active" href="human-behavior.html"><span class="nav-dot"></span><span>Human behaviour</span></a>
+<a class="nav-link " href="recommendations.html"><span class="nav-dot"></span><span>Recommendations</span></a>
+<a class="nav-link " href="recommendation-simulation.html"><span class="nav-dot"></span><span>Intervention simulator</span></a>
+<a class="nav-link " href="history.html"><span class="nav-dot"></span><span>History</span></a>
+<a class="nav-link " href="reports.html"><span class="nav-dot"></span><span>Reports</span></a></nav>
+      <div class="sidebar-bottom">
+        <div class="safety-note"><span class="note-icon">✳</span><div><strong>Safety by design</strong><p>Understand risk. Plan better interventions.</p></div></div>
+        <div class="profile-row"><div class="avatar">RA</div><div><strong>Safety analyst</strong><small>Local workspace</small></div><span class="profile-status"></span></div>
+      </div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu icon-button" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <div class="breadcrumb"><span>Workspace</span><span class="crumb-slash">/</span><strong>Human behaviour</strong></div>
+        <div class="topbar-actions"><span class="mode-pill"><span class="status-dot"></span><span id="connectionLabel">Demo mode</span></span><button class="icon-button" id="refreshButton" aria-label="Refresh data" title="Refresh data">↻</button></div>
+      </header>
+      <section class="page-wrap">
+        <div id="pageContent" aria-live="polite"></div>
+        <footer class="app-footer"><span>RegulaAI · Prototype</span><span>Decision support only · Verify findings with qualified professionals</span></footer>
+      </section>
+    </main>
+  </div>
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+  <dialog class="modal" id="buildingModal">
+    <form id="buildingForm" method="dialog">
+      <div class="modal-head"><div><span class="eyebrow">BUILDING PROFILE</span><h2 id="buildingModalTitle">Add a building</h2></div><button type="button" class="icon-button" data-close-modal aria-label="Close">×</button></div>
+      <div class="form-grid">
+        <label class="field full"><span>Building name *</span><input name="name" required maxlength="100" placeholder="e.g. North Campus Library"></label>
+        <label class="field full"><span>Address / location</span><input name="address" placeholder="Campus, city or site"></label>
+        <label class="field"><span>Building type</span><select name="building_type"><option>Office</option><option>Educational</option><option>Residential</option><option>Healthcare</option><option>Commercial</option><option>Industrial</option><option>Other</option></select></label>
+        <label class="field"><span>Building age (years)</span><input name="building_age" type="number" min="0" value="5"></label>
+        <label class="field"><span>Floors</span><input name="floors" type="number" min="1" value="3" required></label>
+        <label class="field"><span>Occupancy</span><input name="occupancy" type="number" min="0" value="250" required></label>
+        <label class="field"><span>Exit count</span><input name="exit_count" type="number" min="0" value="2" required></label>
+        <label class="field"><span>Staircase count</span><input name="staircase_count" type="number" min="0" value="2" required></label>
+        <label class="field"><span>Fire extinguishers</span><input name="fire_extinguisher_count" type="number" min="0" value="6"></label>
+        <label class="field"><span>Entered exit capacity (people)</span><input name="exit_capacity" type="number" min="0" value="300"></label>
+        <label class="field"><span>Alarm coverage (%)</span><input name="alarm_coverage" type="number" min="0" max="100" value="90"></label>
+        <label class="field"><span>Emergency-light coverage (%)</span><input name="emergency_light_coverage" type="number" min="0" max="100" value="85"></label>
+        <label class="field"><span>Signage coverage (%)</span><input name="signage_coverage" type="number" min="0" max="100" value="85"></label>
+      </div>
+      <p class="form-hint">Enter verified site information where available. Prototype scores are illustrative and are not code-compliance certifications.</p>
+      <div class="modal-actions"><button type="button" class="button button-quiet" data-close-modal>Cancel</button><button type="submit" class="button button-primary">Save building</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
